@@ -6,6 +6,8 @@ import BackBtn from '../components/BackButton';
 import BananaIndicator from '../components/BananaIndicator';
 import IndicatorCard from '../components/InstructionCards';
 import GameArea from '../components/GameArea';
+import { useAppContext } from '../context/AppContext';
+import RewardComponent from '../components/RewardComponent';
 
 
 interface IntoScreenProps {
@@ -17,7 +19,7 @@ interface IntoScreenProps {
 
 
 const IntoScreen: React.FC<IntoScreenProps> = ({ prop1, prop2 }) => {
-    const [screen, setScreen] = useState(4);
+    const { screen, setScreen } = useAppContext();
     
   return (
       <div style={{}}>
@@ -31,7 +33,8 @@ const IntoScreen: React.FC<IntoScreenProps> = ({ prop1, prop2 }) => {
           {screen == 3 ? <IndicatorCard /> : null}
           
           {screen < 4 ? <NextBtn text={screen==1 ?'Next' : screen == 2 ? "Yes" : screen==3 ? "Play" : "Start"} setScreen={setScreen} /> : null}
-            {screen == 4 ? <GameArea/>: null}
+          {screen == 4 ? <GameArea /> : null}
+          {screen == 5 ? <RewardComponent/> : null}
     </div>
   );
 };

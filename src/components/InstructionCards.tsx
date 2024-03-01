@@ -40,8 +40,8 @@ const InstructoinsCard: React.FC = () => {
     }
 
     return <div style={containerStyle}>
-        {cardsData.map((item) => {
-            return <InstructionCard title={item.title} subTitle={item.subTitle} image={item.image} headingText={item.headinText} cardNumberIndicatorImage={ item.cardNumberIndicatorImage} />
+        {cardsData.map((item, i) => {
+            return <InstructionCard key={i} title={item.title} subTitle={item.subTitle} image={item.image} headingText={item.headinText} cardNumberIndicatorImage={ item.cardNumberIndicatorImage} />
             
         })}
     </div>

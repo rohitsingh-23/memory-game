@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import NextBtnImage from "../assets/next-btn.png"
+import OkBtnImage from "../assets/okay-btn.svg"
 
-interface NextBtnProps {
+interface OkBtnProps {
   text: string;
-    setScreen: Function;
+setScreen: Function;
 }
 
-const NextBtn: React.FC<NextBtnProps> = ({ text, setScreen }) => {
-    const [isBobble, setIsBobble] = useState(false);
+const OkBtn: React.FC<OkBtnProps> = ({ text, setScreen }) => {
+const [isBobble, setIsBobble] = useState(false);
 const containerStyle: React.CSSProperties = {
     position: 'absolute',
     width: '20%',
@@ -35,14 +35,14 @@ const containerStyle: React.CSSProperties = {
   };
 
   return (
-      <div style={containerStyle} onClick={() => {
+      <div style={containerStyle} className={isBobble ? 'bobble-button' : ''} onClick={() => {
           setIsBobble(true);
           setTimeout(() => {
               setIsBobble(false)
-              setScreen((prev: number) => prev + 1)
-          }, 200);
-    }} className={isBobble ? 'bobble-button' : ''}>
-        <img src={NextBtnImage} alt="" width={"100%"} />
+            //   setScreen((prev: number) => prev + 1)
+          }, 300);
+    }}>
+        <img src={OkBtnImage} alt="" width={"100%"} />
         <p style={textStyle}>{text}</p>
     </div>
   );
@@ -50,6 +50,6 @@ const containerStyle: React.CSSProperties = {
 
 
 
-export default NextBtn;
+export default OkBtn;
 
 

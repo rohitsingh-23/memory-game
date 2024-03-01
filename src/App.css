@@ -12,7 +12,15 @@
   background-color: #000000a6;
   position: absolute;
   top: 0;
-  
+}
+
+.out-of-move-container{
+  width: 100%;
+  height: 100%;
+  background-color: #000000a6;
+  position: absolute;
+  top: 0;
+  z-index: 10;
 }
 
 .matched-card-container{
@@ -59,4 +67,53 @@
   left: 55%;
   text-shadow: -2px -2px 2px #fff, 2px -2px 2px #fff, -2px 2px 2px #fff, 2px 2px 2px #fff;
   color: rgb(159, 20, 20);
+}
+
+.out-of-moves-text{
+  font-size: 5vw;
+    position: absolute;
+    top: 15vh;
+    left: 55%;
+    text-shadow: -2px -2px 2px #fff, 2px -2px 2px #fff, -2px 2px 2px #fff, 2px 2px 2px #fff;
+    color: rgb(255, 5, 5);
+}
+
+.reward-container {
+  width: 100%;
+  height: 100%;
+  background-color: #000000a6;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0%;
+  height: 100%;
+}
+
+.reward-container{
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: fit-content;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.reward-heading{
+  position: absolute;
+  margin-top: -35%;
+
+}
+
+.bobble-button {
+  transition: transform 0.1s;
+  transform: scale(1.1);
 }

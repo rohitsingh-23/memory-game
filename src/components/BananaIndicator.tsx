@@ -1,24 +1,29 @@
 import React from "react"
 import UnactiveBananaIndicator from "../assets/unactive-banana-indicator.svg"
+import FilledBananaIndicator from "../assets/filled-banana-indicator.svg"
+import ActiveBarIndicator2 from "../assets/active-bar-indicator-2.svg"
+import { useAppContext } from "../context/AppContext"
 
 interface BananaIndicatorProps {
     active: boolean
 }
 
 const BananaIndicator: React.FC<BananaIndicatorProps> = ({ active }) => {
+
+    const {moves, solvedCards} = useAppContext()
+    
     const containerStyle: React.CSSProperties = {
-    // position: 'absolute',
     width: '40%',
-    // height: '300px', 
     color: 'white', 
-    textAlign: 'left', 
-    right: "10%",
+    textAlign: 'left',
     top: "10%",
-        // backgroundColor: "red"
     zIndex: 10,
-  };
+    
+    };
+    
+    
     return <div style={containerStyle}>
-        <img  src={UnactiveBananaIndicator} alt="" width={"100%"}  />
+        <img src={solvedCards == 6 ? FilledBananaIndicator : solvedCards > 0 ? ActiveBarIndicator2 : UnactiveBananaIndicator} alt="" width={"100%"} />
     </div>
 }
 
