@@ -78,78 +78,6 @@
     color: rgb(255, 5, 5);
 }
 
-.reward-container {
-  width: 100%;
-  height: 100%;
-  background-color: #000000a6;
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0%;
-  height: 100%;
-}
-
-.reward-container{
-  position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 30vw;
-    height: fit-content;
-    color: white;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-}
-
-.reward-heading{
-  position: absolute;
-  margin-top: -35%;
-
-}
-
-.bobble-button {
-  transition: transform 0.1s;
-  transform: scale(1.1);
-}
-
-.rewarded-banana-common{
-  display: block;
-  position: absolute;
-  margin: auto;
-  width: 8vw;
-}
-
-.rewarded-banana-1{
-  left: 20vw;
-  top: 25vh;
-}
-.rewarded-banana-2{
-  right: 20vw;
-  top: 30vh;
-  transform: rotate(-10deg);
-}
-.rewarded-banana-3{
-  left: 25vw;
-  bottom: 35vh;
-  transform: rotate(30deg);
-}
-.rewarded-banana-4{
-  right: 10vw;
-  bottom: 35vh;
-  transform: rotate(-35deg);
-}
-.rewarded-banana-5{
-  right: 20vw;
-  bottom: 15vh;
-  transform: rotate(-30deg);
-}
-
 .imageStyle {
   display: block;
   margin: auto;
@@ -442,4 +370,145 @@
   width: 100%;
   height: 100vh;
   font-family: 'Nunito', sans-serif;
+}
+
+/* reward container */
+
+.reward-container {
+  width: 100%;
+  height: 100%;
+  background-color: #000000a6;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0%;
+  height: 100%;
+}
+
+.reward-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
+  height: fit-content;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.reward-heading {
+  position: absolute;
+  margin-top: -35%;
+
+}
+
+.bobble-button {
+  transition: transform 0.1s;
+  transform: scale(1.1);
+}
+
+.rewarded-banana-common {
+  display: block;
+  position: absolute;
+  margin: auto;
+  width: 8vw;
+}
+
+.rewarded-banana-1 {
+  left: 15vw;
+  top: 25vh;
+  animation-duration: 5s;
+  animation-name: fallAndRotate1;
+}
+
+.rewarded-banana-2 {
+  right: 20vw;
+  top: 30vh;
+  animation-duration: 2s;
+  animation-name: fallAndRotate2;
+  transform: rotate(-10deg);
+}
+
+.rewarded-banana-3 {
+  left: 25vw;
+  bottom: 35vh;
+  animation-name: fallAndRotate3;
+  transform: rotate(30deg);
+  animation-duration: 2s;
+}
+
+.rewarded-banana-4 {
+  right: 10vw;
+  bottom: 40vh;
+  animation-name: fallAndRotate4;
+  transform: rotate(-35deg);
+  animation-duration: 4s;
+}
+
+.rewarded-banana-5 {
+  right: 30vw;
+  bottom: 15vh;
+  animation-name: fallAndRotate5;
+  transform: rotate(-30deg);
+  animation-duration: 4s;
+}
+
+
+.rewarded-banana-common {
+  position: absolute;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fallAndRotate1 {
+  0% {
+    transform: translate(-40vh, -10vw) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(50vh) rotate(360deg);
+  }
+}
+
+@keyframes fallAndRotate2 {
+  0% {
+    transform: translate(-5vh, -10vw) rotate(0deg);
+  }
+  100% {
+    transform: translate(-10vh, 40vh) rotate(360deg);
+  }
+}
+
+@keyframes fallAndRotate3 {
+  0% {
+      transform: translateY(-40vh) rotate(0deg);
+    }
+  100% {
+    transform: translateY(30vh) rotate(360deg);
+  }
+}
+
+@keyframes fallAndRotate4 {
+  0% {
+      transform: translateY(-40vh) rotate(0deg);
+    }
+  100% {
+    transform: translateY(30vh) rotate(360deg);
+  }
+}
+
+@keyframes fallAndRotate5 {
+  0% {
+      transform: translate(20vw,-80vh) rotate(0deg);
+    }
+  100% {
+    transform: translateY(10vh) rotate(360deg);
+  }
 }

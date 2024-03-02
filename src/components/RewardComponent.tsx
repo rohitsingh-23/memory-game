@@ -19,11 +19,13 @@ const RewardComponent: React.FC = () => {
     }
 
     return <div style={{backgroundColor: "#000000a6", width: "100vw", height: "100vh", position: "absolute", top: "0"}}>
+        {solvedCards >0 ? <div>
             <img className="rewarded-banana-common rewarded-banana-1" src={BananaImage} alt=""  loading="lazy"/>
             <img className="rewarded-banana-common rewarded-banana-2" src={BananaImage} alt=""  loading="lazy"/>
             <img className="rewarded-banana-common rewarded-banana-3" src={BananaImage} alt=""  loading="lazy"/>
             <img className="rewarded-banana-common rewarded-banana-4" src={BananaImage} alt=""  loading="lazy"/>
             <img className="rewarded-banana-common rewarded-banana-5" src={BananaImage} alt=""  loading="lazy"/>
+        </div> : null}
         <div className="containerStyle">
             <img src={Reward} alt="" className="imageStyle"  loading="lazy"/>
             <p className="textStyle">Earned</p>
