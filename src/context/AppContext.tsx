@@ -15,7 +15,7 @@ type AppContextProviderProps = { children: ReactNode };
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children }) => {
     const [moves, setMoves] = React.useState<number>(0);
     const [solvedCards, setSolvedCards] = React.useState<number>(0)
-    const [screen, setScreen] = React.useState<number>(4)
+    const [screen, setScreen] = React.useState<number>(0)
 
   return (
     <AppContext.Provider value={{ moves, setMoves, solvedCards, setSolvedCards, screen, setScreen }}>
