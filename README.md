@@ -64,8 +64,8 @@ Check out the deployed version of FruitMemory Challenge [here](https://memory-ga
 
 ## License:
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License]
 
 ## Acknowledgements:
 
-- Fruit illustrations by [
+- Fruit illustrations by [Rohit Singh](https://rohitsingh-23.vercel.app/)
