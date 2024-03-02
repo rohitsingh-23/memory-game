@@ -11,6 +11,7 @@ import SelectCardTWoIndicatorText from  "../assets/select-card-two-indicator-tex
 import { useAppContext } from "../context/AppContext";
 import NextBtn from "./NextButton";
 import MovesBox from "./MovesBox";
+import ReactCardFlip from "react-card-flip";
 
 
 
@@ -128,29 +129,33 @@ const GameArea: React.FC = () => {
     
     return <div style={{ display: "flex", marginTop: "3%", }}>
         <MovesBox screen={screen} />
-        {moves ==0 && !selectedLeftCard ? <img style={{position: "absolute", top: "14vh", left: "30vw", width: "12vw"}} src={SelectCardOneIndicatorArrow} alt="" /> : null}
-        {moves == 0 && !selectedLeftCard ? <img style={{position: "absolute", top: "10vh", left: "40vw", width: "12vw"}} src={SelectCardOneIndicatorText} alt="" /> : null}
-       {moves == 0 && selectedLeftCard ? <img style={{position: "absolute", bottom: "10vh", right: "30vw", width: "12vw", transform: "scale(-1, -1)"}} src={SelectCardOneIndicatorArrow} alt="" /> : null}
-        {moves == 0 && selectedLeftCard ? <img style={{position: "absolute", bottom: "20vh", right: "30vw", width: "12vw"}} src={SelectCardTWoIndicatorText} alt="" /> : null}
+        {moves ==0 && !selectedLeftCard ? <img style={{position: "absolute", top: "14vh", left: "30vw", width: "12vw", zIndex: 10}} src={SelectCardOneIndicatorArrow} alt="" /> : null}
+        {moves == 0 && !selectedLeftCard ? <img style={{position: "absolute", top: "10vh", left: "40vw", width: "12vw", zIndex: 10}} src={SelectCardOneIndicatorText} alt="" /> : null}
+        {moves == 0 && selectedLeftCard ? <img style={{position: "absolute", bottom: "10vh", right: "30vw", width: "12vw", zIndex: 10, transform: "scale(-1, -1)"}} src={SelectCardOneIndicatorArrow} alt="" /> : null}
+        {moves == 0 && selectedLeftCard ? <img style={{position: "absolute", bottom: "20vh", right: "30vw", width: "12vw", zIndex: 10}} src={SelectCardTWoIndicatorText} alt="" /> : null}
         <div className="left left-container-style">
             {leftCards.map((item) => {
                 return <div key={item.id} style={{ width: "30%", cursor: "pointer", opacity: `${item.matched ? "0" : "100%" }` }} onClick={() => {
-                    if (!selectedLeftCard) {
-                    if (!item.active) {
-                        setLeftCards((prev) => {
-                                return prev.map((temp) => {
-                                if (temp.id === item.id) {
-                                    return { ...temp, active: !temp.active };
-                                }
-                                return temp;
-                                });
-                        }); 
+                    if (!item.matched) {
+                        if (!selectedLeftCard) {
+                        if (!item.active) {
+                            setLeftCards((prev) => {
+                                    return prev.map((temp) => {
+                                    if (temp.id === item.id) {
+                                        return { ...temp, active: !temp.active };
+                                    }
+                                    return temp;
+                                    });
+                            }); 
+                        }
+                            setSelectedLeftCard(item)
+                        }
                     }
-                        setSelectedLeftCard(item)
-                    }
-                    
                 }} >
-                    <img src={item.active ? item.backImage :item.frontImage} className="card-style" alt="" loading="lazy"/>
+                    <ReactCardFlip isFlipped={item.active}>
+                        <img src={item.frontImage} className="card-style" alt="" loading="lazy"/>
+                        <img src={item.backImage} className="card-style" alt="" loading="lazy"/>
+                    </ReactCardFlip>
                 </div>
             })}
         </div>
@@ -177,7 +182,10 @@ const GameArea: React.FC = () => {
                     }, 500)
                     }
                 }} >
-                    <img src={item.active ? item.backImage :item.frontImage} className="card-style" alt="" loading="lazy"/>
+                    <ReactCardFlip isFlipped={item.active}>
+                        <img src={item.frontImage} className="card-style" alt="" loading="lazy"/>
+                        <img src={item.backImage} className="card-style" alt="" loading="lazy"/>
+                    </ReactCardFlip>
                 </div>
             })}
         </div>
