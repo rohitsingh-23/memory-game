@@ -80,10 +80,18 @@ const GameArea: React.FC = () => {
         if (!(moves === 12 || solvedCards >= 5)) {
             document.addEventListener("click", handleClickOutside);
         }
+        if (selectedLeftCard && selectedRightCard) {
+            if (selectedLeftCard?.value !== selectedRightCard?.value) {
+                setTimeout(() => {
+                        setSelectedLeftCard(undefined)
+                        setSelectedRightCard(undefined)
+                }, 1000)
+            }
+        }
         return () => {
             document.removeEventListener("click", handleClickOutside);
         };
-    }, [moves]);
+    }, [moves, selectedRightCard]);
 
     useEffect(() => {
         let count = 0;
@@ -152,12 +160,12 @@ const GameArea: React.FC = () => {
                     if (!selectedRightCard && selectedLeftCard) {
                         if (selectedLeftCard) {
                         setRightCards((prev) => {
-                                return prev.map((temp) => {
-                                    if (temp.id === item.id) {
+                            return prev.map((temp) => {
+                                if (temp.id === item.id) {
                                     return { ...temp, active: !temp.active };
                                 }
                                 return temp;
-                                });
+                            });
                         });
                     }
                     setMoves((prev) => prev + 1)
