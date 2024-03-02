@@ -1,6 +1,5 @@
 import React, { createContext, useContext, ReactNode, Dispatch, SetStateAction } from 'react';
 
-// Define the context type
 type AppContextType = {
   moves: number;
   setMoves: Dispatch<SetStateAction<number>>;
@@ -10,10 +9,8 @@ type AppContextType = {
   setScreen: Dispatch<SetStateAction<number>>;
 };
 
-// Create the context
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-// Create a provider component
 type AppContextProviderProps = { children: ReactNode };
 export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children }) => {
     const [moves, setMoves] = React.useState<number>(0);
@@ -27,7 +24,6 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({ children
   );
 };
 
-// Custom hook to access the context values
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {

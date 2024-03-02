@@ -2,7 +2,6 @@ import './App.css';
 import Image from './assets/app-background.png';
 import IntoScreen from './pages/Introscreen';
 
-
 function App() {
    const style = {
     backgroundImage:  `url(${Image})`,

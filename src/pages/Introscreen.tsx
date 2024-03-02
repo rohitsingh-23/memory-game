@@ -11,13 +11,9 @@ import RewardComponent from '../components/RewardComponent';
 
 
 interface IntoScreenProps {
-  prop1: string;
-    prop2: number;
-    
-
+    prop1: string;
+    prop2: number; 
 }
-
-
 const IntoScreen: React.FC<IntoScreenProps> = ({ prop1, prop2 }) => {
     const { screen, setScreen } = useAppContext();
     
@@ -27,11 +23,9 @@ const IntoScreen: React.FC<IntoScreenProps> = ({ prop1, prop2 }) => {
               <BananaIndicator active={false} />
           </div> : null}
           {screen !== 0 ? <BackBtn setScreen={ setScreen} /> : null}
-          {screen < 3 ? <img className='introscreen-monkey' src={SmilingMonkey} alt="smiling-monkey" />: null}
-          
+          {screen < 3 ? <img className='introscreen-monkey' src={SmilingMonkey} alt="smiling-monkey" loading="lazy" />: null}
           {screen < 3 ? <CommentBox screen={screen} /> : null}
           {screen == 3 ? <IndicatorCard /> : null}
-          
           {screen < 4 ? <NextBtn text={screen==1 ?'Next' : screen == 2 ? "Yes" : screen==3 ? "Play" : "Start"} setScreen={setScreen} /> : null}
           {screen == 4 ? <GameArea /> : null}
           {screen == 5 ? <RewardComponent/> : null}

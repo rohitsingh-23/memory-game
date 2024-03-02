@@ -9,23 +9,10 @@ interface BananaIndicatorProps {
 }
 
 const BananaIndicator: React.FC<BananaIndicatorProps> = ({ active }) => {
-
     const {moves, solvedCards} = useAppContext()
-    
-    const containerStyle: React.CSSProperties = {
-    width: '40%',
-    color: 'white', 
-    textAlign: 'left',
-    top: "10%",
-    zIndex: 10,
-    
-    };
-    
-    
-    return <div style={containerStyle}>
-        <img src={solvedCards == 6 ? FilledBananaIndicator : solvedCards > 0 ? ActiveBarIndicator2 : UnactiveBananaIndicator} alt="" width={"100%"} />
+    return <div className="banana-container">
+        <img src={solvedCards == 6 ? FilledBananaIndicator : solvedCards > 0 || moves == 12 ?  ActiveBarIndicator2 : UnactiveBananaIndicator} alt="" width={"100%"} loading="lazy" />
     </div>
 }
-
 
 export default BananaIndicator

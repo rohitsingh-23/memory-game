@@ -27,19 +27,8 @@ const InstructoinsCard: React.FC = () => {
         image: MatchCardImage,
         cardNumberIndicatorImage: CardThreeIndicator
     }]
-    
-    const containerStyle: React.CSSProperties = {
-        gap: "10%",
-        display: "flex",
-        justifyContent: "center",
-        position: "absolute",
-        top: "50%",
-        transform: `translate(${0}px, -50%)`,
-        width: "100%"
-        
-    }
 
-    return <div style={containerStyle}>
+    return <div className='instruction-card-container'>
         {cardsData.map((item, i) => {
             return <InstructionCard key={i} title={item.title} subTitle={item.subTitle} image={item.image} headingText={item.headinText} cardNumberIndicatorImage={ item.cardNumberIndicatorImage} />
             

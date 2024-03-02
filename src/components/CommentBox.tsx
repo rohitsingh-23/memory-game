@@ -8,34 +8,12 @@ interface CommentBoxProps {
 }
 
 const CommentBox: React.FC<CommentBoxProps> = ({ screen }) => {
-const text = ["Welcome Kiddo !","Hi , I am Mizo !\nand I love bananas", "Can you help me get some ?"]
-  const containerStyle: React.CSSProperties = {
-    position: 'absolute',
-    right: "20%",
-    top: "15%",
-    width: '30vw',
-    height: 'fit-content',
-    color: 'white', 
-    textAlign: 'left', 
-    display: "flex",
-    justifyContent: "center",
-      alignItems: 'center',
-      zIndex: 0,
-    
-  };
+    const text = ["Welcome Kiddo !","Hi , I am Mizo !\nand I love bananas", "Can you help me get some ?"]
 
-  const textStyle: React.CSSProperties = {
-    position: 'absolute',
-    marginTop: '-4%',
-    width: "80%",
+    const textStyle: React.CSSProperties = {
     fontSize: `${ screen==0 ? "2.8vw": "2vw"}`,
-    fontWeight: "800",
-    color: "#11AEC6",
-    whiteSpace: "normal",
-    paddingLeft: "10%",
-    height: "fit-content",
-    
-  };
+
+    };
     
     const iconStyle: React.CSSProperties = {
         width: `${screen == 1 ? "10%" : "15%"}`,
@@ -44,10 +22,10 @@ const text = ["Welcome Kiddo !","Hi , I am Mizo !\nand I love bananas", "Can you
     }
 
   return (
-    <div style={containerStyle}>
-        <img src={CommentBoxImage} alt="" width={"100%"} />
-        <p style={textStyle}> {text[screen]} </p>
-        {screen == 1 || screen==2 ? <img src={screen==2 ? BananaImage: ThinkingImoji} style={iconStyle} alt=""  /> : null}
+    <div className='comment-box-container'>
+        <img src={CommentBoxImage} alt="" width={"100%"} loading="lazy" />
+        <p className='comment-text-style' style={textStyle}> {text[screen]} </p>
+        {screen == 1 || screen==2 ? <img src={screen==2 ? BananaImage: ThinkingImoji} style={iconStyle} alt="" loading="lazy" /> : null}
     </div>
   );
 };
