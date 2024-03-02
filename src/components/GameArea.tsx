@@ -77,10 +77,8 @@ const GameArea: React.FC = () => {
                 }, 300)
             }
         };
-        if (moves < 12) {
+        if (!(moves === 12 || solvedCards >= 5)) {
             document.addEventListener("click", handleClickOutside);
-        } else {
-            document.removeEventListener("click", handleClickOutside);
         }
         return () => {
             document.removeEventListener("click", handleClickOutside);
