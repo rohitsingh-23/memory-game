@@ -1,6 +1,6 @@
 import React from 'react';
-import CommentBoxImage from "../assets/comment-box.png"
-import BananaImage from "../assets/banana.png"
+import CommentBoxImage from "../assets/comment-box.svg"
+import BananaImage from "../assets/banana.svg"
 import ThinkingImoji from "../assets/Thinking-Emoji.svg"
 
 interface CommentBoxProps {
@@ -18,7 +18,7 @@ const CommentBox: React.FC<CommentBoxProps> = ({ screen }) => {
     const iconStyle: React.CSSProperties = {
         width: `${screen == 1 ? "10%" : "15%"}`,
         position: "absolute",
-        top: `${screen == 1 ? "40%" : "30%"}`
+        top: `${screen == 1 ? "40%" : "38%"}`
     }
 
   return (

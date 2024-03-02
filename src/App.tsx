@@ -1,5 +1,5 @@
 import './App.css';
-import Image from './assets/app-background.png';
+import Image from './assets/app-background.svg';
 import IntoScreen from './pages/Introscreen';
 
 function App() {

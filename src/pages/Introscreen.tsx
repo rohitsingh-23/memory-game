@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SmilingMonkey from "../assets/smiling-monkey.png"
+import SmilingMonkey from "../assets/smiling-monkey.svg"
 import CommentBox from '../components/CommentBox';
 import NextBtn from '../components/NextButton';
 import BackBtn from '../components/BackButton';

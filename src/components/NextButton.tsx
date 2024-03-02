@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NextBtnImage from "../assets/next-btn.png"
+import NextBtnImage from "../assets/next-btn.svg"
 
 interface NextBtnProps {
   text: string;
