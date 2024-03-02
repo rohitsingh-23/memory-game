@@ -81,7 +81,7 @@ const GameArea: React.FC = () => {
         if (!(moves === 12 || solvedCards >= 5)) {
             document.addEventListener("click", handleClickOutside);
         }
-        if (selectedLeftCard && selectedRightCard) {
+        if (selectedLeftCard && selectedRightCard && (moves !==12 || solvedCards == 6)) {
             if (selectedLeftCard?.value !== selectedRightCard?.value) {
                 setTimeout(() => {
                         setSelectedLeftCard(undefined)
@@ -189,8 +189,8 @@ const GameArea: React.FC = () => {
                 </div>
             })}
         </div>
-        {selectedLeftCard && selectedRightCard ? <div className="matched-container" ref={matchedContainerRef}>
-              <p className={  selectedLeftCard.value !== selectedRightCard.value ? "unmatched-text" :   moves ==12 ? "out-of-moves-text" : "matched-text" }>{selectedLeftCard.value !== selectedRightCard.value ? "It’s not a match !" :  moves ==12 ? "Out of moves" : "It’s a match !" }</p>
+        {(selectedLeftCard && selectedRightCard ) ? <div className="matched-container" ref={matchedContainerRef}>
+              <p className={  selectedLeftCard?.value !== selectedRightCard?.value ? "unmatched-text" :   moves ==12 ? "out-of-moves-text" : "matched-text" }>{selectedLeftCard?.value !== selectedRightCard?.value ? "It’s not a match !" :  moves ==12 ? "Out of moves" : "It’s a match !" }</p>
             <div className="matched-card-container">
                 <img className="matched-image-one" src={selectedLeftCard?.backImage} alt="" loading="lazy"/>
                 <img className="matched-image-two" src={selectedRightCard?.backImage} alt="" loading="lazy" />
