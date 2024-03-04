@@ -12,6 +12,7 @@ import { useAppContext } from "../context/AppContext";
 import NextBtn from "./NextButton";
 import MovesBox from "./MovesBox";
 import ReactCardFlip from "react-card-flip";
+import Timer from "./Timer";
 
 
 
@@ -189,6 +190,7 @@ const GameArea: React.FC = () => {
                 </div>
             })}
         </div>
+        <Timer/>
         {(selectedLeftCard && selectedRightCard ) ? <div className="matched-container" ref={matchedContainerRef}>
               <p className={  selectedLeftCard?.value !== selectedRightCard?.value ? "unmatched-text" :   moves ==12 ? "out-of-moves-text" : "matched-text" }>{selectedLeftCard?.value !== selectedRightCard?.value ? "It’s not a match !" :  moves ==12 ? "Out of moves" : "It’s a match !" }</p>
             <div className="matched-card-container">

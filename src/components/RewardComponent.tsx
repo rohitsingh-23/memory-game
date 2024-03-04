@@ -9,14 +9,10 @@ const RewardComponent: React.FC = () => {
     const {moves, solvedCards, setScreen, setSolvedCards, setMoves } = useAppContext();
 
     const calculateReward = () => {
-        if (solvedCards == 0) {
-            return 0
-        }else if (moves !== 12 as number) {
-            return moves * (6 - (moves - 6)) + solvedCards;
-        } else {
-            return moves * 0.5 + solvedCards;
-        }
+        return solvedCards
     }
+
+    //
 
     return <div style={{backgroundColor: "#000000a6", width: "100vw", height: "100vh", position: "absolute", top: "0"}}>
         {solvedCards >0 ? <div>
